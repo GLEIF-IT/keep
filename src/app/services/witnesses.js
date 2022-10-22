@@ -19,7 +19,7 @@ class Witnesses {
     staging: [
       'BILZrnru0e-0MUmnnjOdWTrZ7OW3sCuk_C_67uYeLsN_',
       'BN6TBUuiDY_m87govmYhQ2ryYP2opJROqjDkZToxuxS2',
-      'BBD748wGFn9-1nfVEtfwd97wc-HCw0LRF2xeIujmqJOQ',
+      'BBD748wGFn9`-1nfVEtfwd97wc-HCw0LRF2xeIujmqJOQ',
       'BHeD7WvSDGwm0glBHGTuHpGeMRq7HyCOAJ8h_epQyHkR',
       'BBHjAqI2Bf_L6BtR0ueAGf12GXEKKCPo2etRCjuu87U7',
     ],

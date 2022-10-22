@@ -34,8 +34,8 @@ class Mail {
       mail.initEventSource();
 
       setTimeout(restartEventSource, 10000);
-    }, 100)
-  }
+    }, 100);
+  };
 
   static initEventSource = () => {
     if (this.source) {

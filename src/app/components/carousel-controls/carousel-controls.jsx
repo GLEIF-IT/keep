@@ -7,14 +7,14 @@ class CarouselControls {
 
   back(vnode) {
     if (vnode.attrs.active === 0) {
-      vnode.attrs.setActive(vnode.attrs.items - 1);
+      vnode.attrs.setActive(vnode.attrs.numItems - 1);
       return;
     }
     vnode.attrs.setActive(vnode.attrs.active - 1);
   }
 
   next(vnode) {
-    if (vnode.attrs.active === vnode.attrs.items - 1) {
+    if (vnode.attrs.active === vnode.attrs.numItems - 1) {
       vnode.attrs.setActive(0);
       return;
     }
@@ -22,7 +22,7 @@ class CarouselControls {
   }
 
   view(vnode) {
-    const itemsArray = new Array(vnode.attrs.items).fill(0);
+    const numItemsArray = new Array(vnode.attrs.numItems).fill(0);
     return (
       <>
         <div class="carousel-controls">
@@ -33,7 +33,7 @@ class CarouselControls {
             }}
           />
           <div class="carousel-controls-list">
-            {itemsArray.map((v, idx) => {
+            {numItemsArray.map((v, idx) => {
               return (
                 <div
                   class={`carousel-controls-item ${vnode.attrs.active === idx ? 'carousel-controls-item--active' : ''}`}

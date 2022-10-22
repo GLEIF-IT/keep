@@ -1,17 +1,22 @@
+import { KERI } from './index';
+
 class Participants {
   static instance = undefined;
+  static numParticipants = 0;
 
   constructor(count = 1) {
-    this.oobis = [];
-    for (let i = 0; i < count; i++) {
-      this.addOOBI('', '');
-    }
+    this.oobis = new Map();
     this.words = [];
     Participants.instance = this;
+    Participants.numParticipants = count;
   }
 
   get length() {
-    return this.oobis.length;
+    return this.oobis.size;
+  }
+
+  getIndexForAID(aid) {
+    return;
   }
 
   updateWords(words) {
@@ -20,7 +25,9 @@ class Participants {
   }
 
   addOOBI(alias, url) {
-    this.oobis.push({
+    let aid = KERI.parseAIDFromUrl(url);
+    this.oobis.set(aid, {
+      aid: aid,
       alias: alias,
       url: url,
       status: 'none',
@@ -32,8 +39,10 @@ class Participants {
 
   oobisResolved() {
     return (
-      this.oobis.length > 0 &&
-      this.oobis.every((oobi) => {
+      this.oobis.size > 0 &&
+      Array.from(this.oobis, ([_, v]) => {
+        return v;
+      }).every((oobi) => {
         return oobi.status === 'resolved';
       })
     );
@@ -41,8 +50,11 @@ class Participants {
 
   oobisVerified() {
     return (
-      this.oobis.length > 0 &&
-      this.oobis.every((oobi) => {
+      this.oobis.size > 0 &&
+      // eslint-disable-next-line no-unused-vars
+      Array.from(this.oobis, ([_, v]) => {
+        return v;
+      }).every((oobi) => {
         return oobi.verified;
       })
     );
@@ -50,8 +62,11 @@ class Participants {
 
   oobisConfirmed() {
     return (
-      this.oobis.length > 0 &&
-      this.oobis.every((oobi) => {
+      this.oobis.size > 0 &&
+      // eslint-disable-next-line no-unused-vars
+      Array.from(this.oobis, ([_, v]) => {
+        return v;
+      }).every((oobi) => {
         return oobi.confirmed;
       })
     );
