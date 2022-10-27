@@ -398,7 +398,6 @@ class StayInCallPanel {
 
 class AcceptingIntroductionsPanel {
   view(vnode) {
-    console.log(vnode.attrs);
     return (
       <>
         <img class="task-img task-img--small" src={projectPlanning} alt="" />
